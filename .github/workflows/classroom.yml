@@ -13,6 +13,14 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
+
+        # Testando se isso muda a versao do Git
+    - name: Set up JDK 21
+      uses: actions/setup-java@v4
+      with:
+           java-version: '21'
+           distribution: 'temurin'
+
     - name: Testes
       id: testes
       uses: classroom-resources/autograding-command-grader@v1
@@ -27,3 +35,6 @@ jobs:
         TESTES_RESULTS: "${{steps.testes.outputs.result}}"
       with:
         runners: testes
+
+
+
